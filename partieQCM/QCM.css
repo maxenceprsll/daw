@@ -1,0 +1,24 @@
+body{
+    background-color: lightblue ;
+}
+
+#listeRep{
+    display: flex ;
+    flex-direction: column;
+    border: thick double rgb(255, 255, 255);
+    border-radius: 50px;
+    background-color: teal;
+}
+#QMarge{
+    margin: 3%;
+}
+.alignQR{
+    margin-right: 10px;
+}
+#bag{
+    margin: 3%;
+    width: 150px;
+    height: 32px;
+    border-radius: 8px;/**/
+    background: linear-gradient(lightgreen, teal ); 
+}
