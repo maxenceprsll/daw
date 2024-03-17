@@ -27,6 +27,3 @@ function aff_profil():void {
     '<p>',$_SESSION['usPrenom'],'</p>',
     '</section>';
 }
-
-?>
-

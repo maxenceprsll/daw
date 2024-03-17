@@ -12,9 +12,4 @@ unset($_SESSION['usNom']);
 unset($_SESSION['usPrenom']);
 $_SESSION['loggedin'] = false;
 
-if(isset($_SERVER['HTTP_REFERER'])) {
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
-} else {
-    header('Location: ../index.php');
-}
-
+header('Location: ../index.php');

@@ -62,5 +62,3 @@ function traitementInscription():void {
 	'</section>';
 
 }
-
-

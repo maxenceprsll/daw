@@ -6,53 +6,25 @@ ini_set('display_errors', '1');
 
 require_once 'bibli_ploodle.php';
 
+/*FONCTIONS*/
+
 function bdErreurExit(array $err):void {
     ob_end_clean(); // Suppression de tout ce qui a pu être déja généré
 
     echo    '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8">',
-            '<title>Erreur',
-            IS_DEV ? ' base de données': '', '</title>',
-            '</head><body>';
-    if (IS_DEV){
-        // Affichage de toutes les infos contenues dans $err
-        echo    '<h4>', $err['titre'], '</h4>',
-                '<pre>',
-                    '<strong>Erreur mysqli</strong> : ',  $err['code'], "\n",
-                    $err['message'], "\n";
-        if (isset($err['autres'])){
-            echo "\n";
-            foreach($err['autres'] as $cle => $valeur){
-                echo    '<strong>', $cle, '</strong> :', "\n", $valeur, "\n";
-            }
-        }
-        echo    "\n",'<strong>Pile des appels de fonctions :</strong>', "\n", $err['appels'],
-                '</pre>';
-    }
-    else {
-        echo 'Une erreur s\'est produite';
-    }
-
-    echo    '</body></html>';
-
-    if (!IS_DEV){
-        // Mémorisation des erreurs dans un fichier de log
-        $fichier = @fopen('error.log', 'a');
-        if($fichier){
-            fwrite($fichier, '['.date('d/m/Y').' '.date('H:i:s')."]\n");
-            fwrite($fichier, $err['titre']."\n");
-            fwrite($fichier, "Erreur mysqli : {$err['code']}\n");
-            fwrite($fichier, "{$err['message']}\n");
-            if (isset($err['autres'])){
-                foreach($err['autres'] as $cle => $valeur){
-                    fwrite($fichier,"{$cle} :\n{$valeur}\n");
-                }
-            }
-            fwrite($fichier,"Pile des appels de fonctions :\n");
-            fwrite($fichier, "{$err['appels']}\n\n");
-            fclose($fichier);
+            '<title>Erreur base de données',
+            '</head><body><h4>', $err['titre'], '</h4>',
+            '<pre><strong>Erreur mysqli</strong> : ',  $err['code'], "\n",
+                $err['message'], "\n";
+    if (isset($err['autres'])){
+        echo "\n";
+        foreach($err['autres'] as $cle => $valeur){
+            echo    '<strong>', $cle, '</strong> :', "\n", $valeur, "\n";
         }
     }
-    exit(1);        // ==> ARRET DU SCRIPT
+    echo    "\n",'<strong>Pile des appels de fonctions :</strong>', "\n", $err['appels'],
+            '</pre></body></html>';
+    exit(1);
 }
 
 
@@ -105,4 +77,13 @@ function bdSendRequest(mysqli $bd, string $sql): mysqli_result|bool {
         $err['autres'] = array('Requête' => $sql);
         bdErreurExit($err);    // ==> ARRET DU SCRIPT
     }
+}
+
+function encode_json(mysqli_result $result): string {
+    $json_resultat = array();
+    while($row = mysqli_fetch_assoc($result)) {
+        $json_row = json_encode($row);
+        $json_resultat[] = $json_row;
+    }
+    return json_encode($json_resultat);
 }

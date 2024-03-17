@@ -15,6 +15,18 @@
     backdrop-filter: blur(10px);
 }
 
+header {
+    text-align: center;
+    font-size: larger;
+    font-size: 40px;
+    color: var(--primary);
+}
+
+#titre {
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -22,7 +34,7 @@ body {
     background-size: cover;
 }
 
-section {
+section, .box {
     margin-bottom: 20px;
     padding: 20px;
     background: rgba(255, 255, 255, 0.5);
@@ -42,7 +54,7 @@ a:hover, .clickable:hover {
 }
 
 /* NAV */
-nav ul {
+nav #navigation {
     display: flex;
     justify-content: stretch;
     align-items: center;
@@ -55,7 +67,7 @@ nav ul {
     padding: 10px;
 }
 
-nav ul li {
+nav #navigation li {
     padding: 0 10px;
     font-size: 18px;
 }
@@ -109,6 +121,7 @@ nav ul li {
 }
 
 .slides {
+    position: inherit;
     display: none;
     width: 100%;
     border-radius: 10px;
@@ -138,6 +151,7 @@ nav ul li {
     transition: 0.6s ease;
     user-select: none;
     background-color: rgba(0, 0, 0, 0.25);
+    z-index: 5;
 }
 
 .prev:hover, .next:hover {
@@ -146,35 +160,46 @@ nav ul li {
 }
 
 /* SIDEBAR */
-.sidebar {
-    width: 0;
-    position: fixed;
-    top: 5px;
-    right: 5px;
-    background-color: rgba(255, 255, 255, 0.6);
+#user {
+    position: relative;
+    display: inline-block;
+}
+#sidebar {
+    width: 100%;
+    padding: 0;
+    position: absolute;
+    top: 1lh;
+    left: -10px;
+    height: 0;
+    background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(30px);
     text-wrap: nowrap;
     overflow: hidden;
-    transition: 0.5s;
     border-radius: 20px;
+    z-index: 9;
 }
 
-.sidebar ul {
+#user:hover #sidebar, #sidebar:hover {
+    padding: 5px 10px;
+    height: auto;
+}
+
+#sidebar ul {
     list-style-type: none;
     padding: 0;
 }
 
-.sidebar ul li {
+#sidebar ul li {
     padding: 8px;
     text-align: center;
 }
 
-.sidebar ul li a {
+#sidebar ul li a {
     text-decoration: none;
     color: #333;
 }
 
-.sidebar ul li a:hover {
+#sidebar ul li a:hover {
     color: #555;
 }
 
@@ -188,4 +213,75 @@ nav ul li {
     color: #fff;
     border-radius: 15px;
     transition: top 0.5s ease;
+}
+
+/* QCM */
+#listeRep {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+#QMarge {
+    margin-bottom: 20px;
+}
+
+#listeRep p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#listeRep input[type="radio"] {
+    margin-right: 20px;
+}
+
+#listeRep label {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+#qcmSubmit {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary);
+    color: white;
+    cursor: pointer;
+}
+
+#qcmSubmit:hover {
+    background-color: var(--tertiary);
+}
+
+.reponse {
+    width: 20%;
+    margin-right: 10px;
+    border-radius: 10px;
+    align-items: center;
+    width: calc(20%-10px);
+    display: flex;
+    align-items: center;
+}
+
+.reponse input[type="radio"]{
+    display: none;
+}
+
+.reponse label {
+    border: solid 3px white;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.reponse input[type="radio"]:checked + label {
+    border: solid 3px green;
+}
+
+.listeReponse {
+    display: flex;
 }

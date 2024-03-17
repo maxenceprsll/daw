@@ -10,6 +10,7 @@ define ('BD_USER', 'projet_daw_u');
 define ('BD_PASS', 'projet_daw_p');
 define ('BD_SERVER', 'localhost');
 
+/*FONCTIONS*/
 
 function head(string $title, string $prefixe = '..', string $css = 'style2.css'):void {
     echo '<!DOCTYPE html>',
@@ -24,13 +25,30 @@ function head(string $title, string $prefixe = '..', string $css = 'style2.css')
             '<div id="display">';
 }
 
+function heading() {
+    echo '<header class="box">',
+        '<h1 id="titre">PLOODLE</h1>',
+        '</header>';
+}
+
 function nav(string $prefixe = '..'):void {
     echo '<nav>',
-    '<ul>',
+    '<ul id="navigation">',
         '<li><a href='.$prefixe.'/index.php>Ploodle</a></li>',
-        '<li>';
+        '<li id="user">';
     if (isset($_SESSION['usLogin'])) {
-        echo '<span onclick="switchSidebar()" class="clickable">'.$_SESSION['usPrenom'],' ',$_SESSION['usNom'].'</span></li>';
+        echo '<span class="clickable">'.$_SESSION['usPrenom'],' ',$_SESSION['usNom'].'</span>',
+            '<div id="sidebar">',
+                '<ul>',
+                    '<li><h3>',$_SESSION['usLogin'],'</h3></li>',
+                    '<li><a href="'.$prefixe.'/php/deconnexion.php">Déconnexion</a></li>',
+                    '<li><a href="'.$prefixe.'/php/profil.php">Profil</a></li>',
+                    '<li><a href="'.$prefixe.'/php/questionnaires.php">Questionnaires</a></li>',
+                    '<li><a href="#">Menu Item 4</a></li>',
+                    '<li><a href="#">Menu Item 5</a></li>',
+                '</ul>',
+            '</div>',
+        '</li>';
     } else {
         echo '<a href="'.$prefixe.'/php/login.php">Connexion</a></li>';
     }
@@ -40,27 +58,9 @@ function nav(string $prefixe = '..'):void {
 }
 
 function footer(string $prefixe = '..'):void {
-echo '<div class="sidebar" id="sidebar">',
-    '<ul>',
-        '<li><h3>',$_SESSION['usLogin'],'</h3></li>',
-        '<li><a href="'.$prefixe.'/php/deconnexion.php">Déconnexion</a></li>',
-        '<li><a href="'.$prefixe.'/php/profil.php">Profil</a></li>',
-        '<li><a href="#">Menu Item 3</a></li>',
-        '<li><a href="#">Menu Item 4</a></li>',
-        '<li><a href="#">Menu Item 5</a></li>',
-    '</ul>',
-'</div>',
-'<div id="notification" class="notification"></div>',
+echo '<div id="notification" class="notification"></div>',
 '</main></div></body>',
 '<script>',
-    'function switchSidebar() {',
-        'var sidebar = document.getElementById("sidebar");',
-        'if (sidebar.style.width === "250px") {',
-            'sidebar.style.width = "0";',
-        '} else {',
-            'sidebar.style.width = "250px";',
-        '}',
-    '}',
     'function showNotification(message, color=\'#444\', time=\'1500\') {',
         'var notification = document.getElementById(\'notification\');',
         'notification.innerHTML = message;',
@@ -80,4 +80,3 @@ echo '<div class="sidebar" id="sidebar">',
     }
     echo '</script></html>';
 }
-
