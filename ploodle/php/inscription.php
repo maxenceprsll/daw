@@ -48,11 +48,12 @@ function aff_inscription():void {
 function traitementInscription():void {
     $passe = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $bd = bdConnect();
-	$sql = "INSERT INTO user (usNom, usPrenom, usLogin, usPass)
+	$sql = "INSERT INTO user (usNom, usPrenom, usLogin, usPass, usAdmin)
 		VALUES ('" . $_POST['nom']
 		 . "','" . $_POST['prenom']
 		 . "','" . $_POST['login']
-		 . "','" . $passe . "')";
+		 . "','" . $passe
+         . "','0')";
 
 	bdSendRequest($bd, $sql);
 	mysqli_close($bd);

@@ -72,6 +72,21 @@ nav #navigation li {
     font-size: 18px;
 }
 
+/* SUBMIT */
+input[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary);
+    color: white;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--tertiary);
+}
+
 /* FORM CONNEXION DECONNEXION*/
 .sessionForm ul {
     list-style: none;
@@ -98,15 +113,6 @@ nav #navigation li {
 
 .sessionForm input[type="submit"] {
     width: calc(50% - 5px);
-    padding: 8px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.sessionForm input[type="submit"]:hover {
-    background-color: #ddd;
 }
 
 .sessionForm {
@@ -238,20 +244,6 @@ nav #navigation li {
 #listeRep label {
     display: inline-block;
     margin-right: 20px;
-}
-
-#qcmSubmit {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--primary);
-    color: white;
-    cursor: pointer;
-}
-
-#qcmSubmit:hover {
-    background-color: var(--tertiary);
 }
 
 .reponse {
