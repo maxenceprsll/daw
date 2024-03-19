@@ -22,8 +22,9 @@ function aff_profil():void {
     echo 
     '<section>',
     '<h2>Profil de ',$_SESSION['usLogin'],'</h2>',
-    '<p>',$_SESSION['usID'],'</p>',
-    '<p>',$_SESSION['usNom'],'</p>',
-    '<p>',$_SESSION['usPrenom'],'</p>',
+    '<p>User ID: ',$_SESSION['usID'],'</p>',
+    '<p>Nom: ',$_SESSION['usNom'],'</p>',
+    '<p>Prenom: ',$_SESSION['usPrenom'],'</p>',
+    '<p>Est admin:',$_SESSION['usAdmin'],'</p>',
     '</section>';
 }

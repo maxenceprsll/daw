@@ -37,18 +37,33 @@ function nav(string $prefixe = '..'):void {
         '<li><a href='.$prefixe.'/index.php>Ploodle</a></li>',
         '<li id="user">';
     if (isset($_SESSION['usLogin'])) {
-        echo '<span class="clickable">'.$_SESSION['usPrenom'],' ',$_SESSION['usNom'].'</span>',
+        if (isset($_SESSION['usAdmin']) && $_SESSION['usAdmin']) {
+            echo '<span class="clickable">'.$_SESSION['usPrenom'],' ',$_SESSION['usNom'].'</span>',
             '<div id="sidebar">',
                 '<ul>',
                     '<li><h3>',$_SESSION['usLogin'],'</h3></li>',
                     '<li><a href="'.$prefixe.'/php/deconnexion.php">Déconnexion</a></li>',
                     '<li><a href="'.$prefixe.'/php/profil.php">Profil</a></li>',
-                    '<li><a href="'.$prefixe.'/php/questionnaires.php">Questionnaires</a></li>',
+                    '<li><a href="'.$prefixe.'/php/page_admin.php">Page Admin</a></li>',
                     '<li><a href="#">Menu Item 4</a></li>',
                     '<li><a href="#">Menu Item 5</a></li>',
                 '</ul>',
             '</div>',
         '</li>';
+        } else {
+            echo '<span class="clickable">'.$_SESSION['usPrenom'],' ',$_SESSION['usNom'].'</span>',
+                '<div id="sidebar">',
+                    '<ul>',
+                        '<li><h3>',$_SESSION['usLogin'],'</h3></li>',
+                        '<li><a href="'.$prefixe.'/php/deconnexion.php">Déconnexion</a></li>',
+                        '<li><a href="'.$prefixe.'/php/profil.php">Profil</a></li>',
+                        '<li><a href="'.$prefixe.'/php/questionnaires.php">Questionnaires</a></li>',
+                        '<li><a href="#">Menu Item 4</a></li>',
+                        '<li><a href="#">Menu Item 5</a></li>',
+                    '</ul>',
+                '</div>',
+            '</li>';
+        }
     } else {
         echo '<a href="'.$prefixe.'/php/login.php">Connexion</a></li>';
     }
@@ -57,7 +72,13 @@ function nav(string $prefixe = '..'):void {
 '<main>';
 }
 
-function footer(string $prefixe = '..'):void {
+function footer(int $showRetour = 1, string $prefixe = '..'):void {
+if($showRetour) {
+    echo '<footer>',
+        '<p><a href="javascript:history.go(-1)">Retour</a>',
+    '</footer>';
+}
+
 echo '<div id="notification" class="notification"></div>',
 '</main></div></body>',
 '<script>',

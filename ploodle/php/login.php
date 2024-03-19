@@ -27,7 +27,6 @@ echo
                 '<li><input type="submit" name="btnConnexion" value="Se connecter"></li>',
             '</ul>',
         '</form>',
-    '<a href="inscription.php">S\'inscrire</a>',
     '</section>';
 }
 
@@ -51,6 +50,7 @@ function traitementConnexion(): void {
                 $_SESSION['usID'] = $userData['usID'];
                 $_SESSION['usNom'] = $userData['usNom'];
                 $_SESSION['usPrenom'] = $userData['usPrenom'];
+                $_SESSION['usAdmin'] = $userData['usAdmin'];
                 $_SESSION['loggedin'] = true;
                 header('Location: ../index.php');
                 exit;

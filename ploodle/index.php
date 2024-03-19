@@ -8,7 +8,7 @@ nav('.');
 
 aff_index();
 
-footer('.');
+footer(0,'.');
 
 /*FONCTIONS*/
 
