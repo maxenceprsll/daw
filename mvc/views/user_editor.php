@@ -1,0 +1,20 @@
+<?php //Maxence Persello
+
+echo '<section class="sessionForm">',
+    '<h3>Edition d\'un utilisateur</h3>',
+    '<p>Merci de fournir les informations suivantes.</p>',
+    '<form method="POST">',
+        '<ul>',
+            '<li><label for="login">Login</label></li>',
+            '<li><input id="login" name="login" type="text" placeholder="4 à 8 lettres minuscules ou chiffres" required value="'.(isset($user['usLogin'])?$user['usLogin']:'').'"/></li>',
+            '<li><label for="nom">Nom</label></li>',
+            '<li><input id="nom" name="nom" type="text" required value="'.(isset($user['usNom'])?$user['usNom']:'').'"/></liu>',
+            '<li><label for="prenom">Prénom</label></li>',
+            '<li><input id="prenom" name="prenom" type="text" required value="'.(isset($user['usPrenom'])?$user['usPrenom']:'').'"/></li>',
+            '<li id="btnAdmin">',
+            '<input id="admin" name=admin type="checkbox" value="1"'.((isset($user['usAdmin'])&&$user['usAdmin'])?'checked':'').'/>',
+            '<label for="admin">Statut Administrateur</label></li>',
+            '<li><input type="submit" name="btnEditeur" value="Modifier"></li>',
+        '</ul>',
+    '</form>',
+    '</section>';
