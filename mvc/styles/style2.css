@@ -65,11 +65,10 @@ a:hover, .clickable:hover {
     backdrop-filter: blur(10px);
     border-radius: 10px;
     margin-bottom: 20px;
-    padding: 10px;
 }
 
 #navigation li {
-    padding: 0 10px;
+    padding: 10px;
     font-size: 20px;
     font-weight: 600;
 }
@@ -172,12 +171,13 @@ input[type="submit"]:hover {
     position: relative;
     display: inline-block;
 }
+
 #sidebar {
-    width: 100%;
+    width: 200px;
     padding: 0;
     position: absolute;
-    top: 1lh;
-    left: -10px;
+    top: 1.75lh;
+    left: 0;
     height: 0;
     background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(30px);
@@ -187,9 +187,8 @@ input[type="submit"]:hover {
 }
 
 #user:hover #sidebar, #sidebar:hover {
-    padding: 5px 30px;
-    transform: translateX(-15px);
     height: auto;
+    padding-top: 10px;
 }
 
 #sidebar ul {
@@ -197,22 +196,21 @@ input[type="submit"]:hover {
     padding: 0;
 }
 
-#sidebar ul li {
-    padding: 8px;
-    text-align: center;
+#sidebar li {
+    text-align: left;
+    padding-left: 15%;
 }
 
-#sidebar ul li a {
+#sidebar li:hover{
+    background-color: rgba(150, 150, 150, 0.5);
+}
+
+#sidebar a {
     text-decoration: none;
     color: #333;
 }
 
-#sidebar ul li a:hover {
-    color: #555;
-}
-
 #sidebar li:last-child {
-    padding: 10px 0;
     border-top: solid 1px black;
 }
 
@@ -291,4 +289,42 @@ input[type="submit"]:hover {
     padding: 10px;
     text-align: center;
     transition: border 0.3s ease;
+}
+
+/* GESTION UTILISATEURS */
+#searchInput {
+    width: 75%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+#table_user {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#table_user th, #table_user td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+
+#table_user th {
+    background-color: var(--primary);
+    color: white;
+}
+
+#table_user tr:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#table_user a {
+    color: var(--secondary);
+    text-decoration: none;
+}
+
+#table_user a:hover {
+    text-decoration: underline;
 }

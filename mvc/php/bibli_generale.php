@@ -85,14 +85,13 @@ function heading() {
 function nav(string $prefixe = '.'):void {
     echo '<nav>',
     '<ul id="navigation">',
-        '<li><a href='.$prefixe.'/>Ploodle</a></li>',
+        '<li><a href='.$prefixe.'/>Accueil</a></li>',
         '<li id="user">';
     if (isset($_SESSION['usLogin'])) {
         if (isset($_SESSION['usAdmin']) && $_SESSION['usAdmin']) {
-            echo '<span class="clickable">'.$_SESSION['usPrenom'],' ',$_SESSION['usNom'].'</span>',
+            echo '<span class="clickable">'.$_SESSION['usPrenom'],' ',$_SESSION['usNom'].'&#x25BC</span>',
             '<div id="sidebar">',
                 '<ul>',
-                    '<li><h3>',$_SESSION['usLogin'],'</h3></li>',
                     '<li><a href="'.$prefixe.'/?route=profil">Profil</a></li>',
                     '<li><a href="'.$prefixe.'/?route=gestion_user">Utilisateurs</a></li>',
                     '<li><a href="'.$prefixe.'/?route=gestion_cours">Cours</a></li>',
@@ -104,7 +103,6 @@ function nav(string $prefixe = '.'):void {
             echo '<span class="clickable">'.$_SESSION['usPrenom'],' ',$_SESSION['usNom'].'</span>',
                 '<div id="sidebar">',
                     '<ul>',
-                        '<li><h3>',$_SESSION['usLogin'],'</h3></li>',
                         '<li><a href="'.$prefixe.'/?route=profil">Profil</a></li>',
                         '<li><a href="'.$prefixe.'/?route=questionnaires">Questionnaires</a></li>',
                         '<li><a href="'.$prefixe.'/?route=auth">Déconnexion</a></li>',

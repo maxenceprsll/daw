@@ -15,7 +15,7 @@ function userController(): void {
 
     echo '<section>';
     echo '<h2>Liste des Utilisateurs</h2>';
-    echo '<input type="text" id="searchInput" oninput="getUsers()">';
+    echo '<input type="text" id="searchInput" oninput="getUsers()" placeholder="Nom, Prenom ou Login">';
     echo '<table id="table_user">';
     echo '<tr><th>Nom</th><th>Prénom</th><th>Login</th><th>Action</th></tr>'; ?>
     <script>

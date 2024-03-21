@@ -9,7 +9,8 @@ require_once 'controllers/qcmController.php';
 require_once 'controllers/authController.php';
 
 $route = isset($_GET['route']) ? $_GET['route'] : '';
-$admin = (isset($_SESSION['usAdmin']) && $_SESSION['usAdmin']) ? 1 : 0;
+$loggedin = (isset($_SESSION['usLogin']));
+$admin = ($loggedin && $_SESSION['usAdmin']);
 
 switch ($route) {
     case 'gestion_user':
@@ -17,14 +18,14 @@ switch ($route) {
             userController();
             break;
         } else {
-            header('Location: #');
+            header('Location: index.php');
         }
     case 'edit_user':
         if($admin) {
             userEditor(isset($_GET['id'])?$_GET['id']:0);
             break;
         } else {
-            header('Location: #');
+            header('Location: index.php');
         }
     case 'auth':
         authController();
