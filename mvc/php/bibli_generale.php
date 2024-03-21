@@ -89,7 +89,7 @@ function nav(string $prefixe = '.'):void {
         '<li id="user">';
     if (isset($_SESSION['usLogin'])) {
         if (isset($_SESSION['usAdmin']) && $_SESSION['usAdmin']) {
-            echo '<span class="clickable">'.$_SESSION['usPrenom'],' ',$_SESSION['usNom'].'&#x25BC</span>',
+            echo '<span class="clickable">'.$_SESSION['usPrenom'],' ',$_SESSION['usNom'].' &#9662</span>',
             '<div id="sidebar">',
                 '<ul>',
                     '<li><a href="'.$prefixe.'/?route=profil">Profil</a></li>',

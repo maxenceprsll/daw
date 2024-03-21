@@ -176,14 +176,15 @@ input[type="submit"]:hover {
     width: 200px;
     padding: 0;
     position: absolute;
-    top: 1.75lh;
+    top: 0;
     left: 0;
     height: 0;
     background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(30px);
     text-wrap: nowrap;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 10px;
+    margin-top: 2lh;
 }
 
 #user:hover #sidebar, #sidebar:hover {
@@ -320,11 +321,6 @@ input[type="submit"]:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-#table_user a {
-    color: var(--secondary);
-    text-decoration: none;
-}
-
-#table_user a:hover {
-    text-decoration: underline;
+#table_user td a {
+    margin-right: 20%;
 }
