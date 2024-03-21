@@ -1,7 +1,7 @@
 <?php //Maxence Persello
 
 echo '<section>',
-    '<form class="sessionForm" action="PageQCM.php" method="POST">',
+    '<form class="sessionForm" method="POST">',
         '<ul>',
             '<li><label for="categorie">Categorie</label></li>',
             '<li><input type="text" name="categorie"></li>',

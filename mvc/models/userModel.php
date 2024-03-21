@@ -1,4 +1,4 @@
-<?php
+<?php //Maxence Persello
 
 function getUsers(): array {
 

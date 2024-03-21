@@ -324,3 +324,52 @@ input[type="submit"]:hover {
 #table_user td a {
     margin-right: 20%;
 }
+
+/* COMMENTAIRES */
+.comments {
+    margin-top: 20px;
+    width: 90%;
+    margin-left: 10%;
+}
+
+.comment {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.add-comment-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.add-comment-button:hover {
+    background-color: var(--tertiary);
+    text-decoration: none;
+}
+
+/* ARTICLE */
+
+.article {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.article h2 {
+    margin-bottom: 10px;
+}
+
+.article p {
+    margin-bottom: 10px;
+}
+
+.article p:last-child {
+    margin-bottom: 0;
+}

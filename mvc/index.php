@@ -1,10 +1,10 @@
-<?php
-// Maxence Persello
+<?php //Maxence Persello
 
 require_once 'php/bibli_generale.php';
 
 require_once 'controllers/indexController.php';
 require_once 'controllers/userController.php';
+require_once 'controllers/forumController.php';
 require_once 'controllers/qcmController.php';
 require_once 'controllers/authController.php';
 
@@ -32,6 +32,9 @@ switch ($route) {
         break;
     case 'questionnaires':
         qcmController();
+        break;
+    case 'forum':
+        forumController();
         break;
     default:
         indexController();

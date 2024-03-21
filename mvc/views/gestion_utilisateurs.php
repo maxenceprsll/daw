@@ -1,4 +1,4 @@
-<?php 
+<?php //Maxence Persello
 
 echo '<section>',
         '<h2>Gestion Utilisateurs</h2>',

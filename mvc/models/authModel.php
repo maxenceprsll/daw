@@ -1,4 +1,4 @@
-<?php
+<?php //Maxence Persello
 
 function traitementConnexion(): bool {
     if (isset($_POST['login'], $_POST['password'])) {

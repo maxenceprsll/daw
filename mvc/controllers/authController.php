@@ -1,5 +1,4 @@
-<?php
-// Maxence Persello
+<?php // Maxence Persello
 
 require_once 'models/authModel.php';
 

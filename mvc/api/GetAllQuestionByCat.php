@@ -1,20 +1,24 @@
-<?php //Maxence Persello & Johann
+<?php //Maxence Persello
 
 require_once '../php/bibli_generale.php';
 
-if(!isset($_GET["categorie"])){
+if (!isset($_GET["categorie"])) {
     echo "Veuillez renseigner une catégorie";
     return;
 }
+
 $db = bdConnect();
 
-$requete = "SELECT * from question WHERE quCategorie = ".$_GET['categorie'];
-$result = bdSendRequest($db, $requete);
+$query = "SELECT * FROM question WHERE quCategorie = :categorie";
+$stmt = $db->prepare($query);
+$stmt->bindParam(':categorie', $_GET['categorie'], PDO::PARAM_INT);
+$stmt->execute();
 
-if ($result && mysqli_num_rows($result) > 0) {
+if ($stmt && $stmt->rowCount() > 0) {
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo encode_json($result);
 } else {
     echo "Valeur introuvable en base de données";
 }
 
-mysqli_close($db);
+$db = null;

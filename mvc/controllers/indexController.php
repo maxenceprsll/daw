@@ -1,5 +1,4 @@
-<?php
-// Maxence Persello
+<?php // Maxence Persello
 
 function indexController(): void {
     head('Accueil');

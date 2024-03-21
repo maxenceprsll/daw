@@ -1,4 +1,4 @@
-<?php
+<?php // Maxence Persello
 
 include_once '../php/bibli_generale.php';
 

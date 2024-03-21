@@ -1,5 +1,4 @@
-<?php 
-//Maxence Persello
+<?php //Maxence Persello
 
 echo    '<section>',
         '<h2>Annonces du site</h2>',
