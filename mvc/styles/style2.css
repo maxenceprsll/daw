@@ -184,7 +184,7 @@ input[type="submit"]:hover {
     text-wrap: nowrap;
     overflow: hidden;
     border-radius: 10px;
-    margin-top: 2lh;
+    margin-top: 1.8lh;
 }
 
 #user:hover #sidebar, #sidebar:hover {
@@ -339,37 +339,55 @@ input[type="submit"]:hover {
     border-radius: 5px;
 }
 
-.add-comment-button {
+.add-forum-button {
     display: inline-block;
     padding: 10px 20px;
     background-color: var(--primary);
     color: white;
     border-radius: 5px;
-    margin-top: 20px;
+    margin: 20px;
 }
 
-.add-comment-button:hover {
+.add-forum-button:hover {
     background-color: var(--tertiary);
     text-decoration: none;
 }
 
-/* ARTICLE */
+/* FORMULAIRE AJOUT ARTICLE */
 
-.article {
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 20px;
+.add-article-form {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.add-article-form h2 {
+    text-align: center;
     margin-bottom: 20px;
-    border-radius: 10px;
 }
 
-.article h2 {
+.add-article-form label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px 5px;
+}
+
+.add-article-form input[type="text"],
+.add-article-form textarea {
+    width: 100%;
+    padding: 10px;
     margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
-.article p {
-    margin-bottom: 10px;
+.add-article-form textarea {
+    min-height: 3lh;
+    max-width: 100%;
+    min-width: 100%;
 }
 
-.article p:last-child {
-    margin-bottom: 0;
+.add-article-form input[type="submit"]:hover {
+    background-color: var(--tertiary);
 }

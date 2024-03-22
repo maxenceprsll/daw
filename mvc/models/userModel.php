@@ -8,6 +8,8 @@ function getUsers(): array {
     $stmt = $db->prepare($query);
     $stmt->execute();
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $db = null;
     
     return $users;
 }
@@ -20,6 +22,8 @@ function getUser($usID): array {
     $stmt = $db->prepare($query);
     $stmt->execute(array(':usID' => $usID));
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $db = null;
     
     return $user;
 }
@@ -38,6 +42,8 @@ function updateUser($usID): int {
     $stmt->bindParam(':usAdmin', $admin);
     $stmt->bindParam(':usID', $usID);
     $stmt->execute();
+
+    $db = null;
 
     return 1;
 }

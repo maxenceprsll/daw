@@ -17,7 +17,7 @@ function authController(): void {
             if(traitementConnexion()) {
                 header('Location: index.php');
             } else {
-                loginFailed();
+                echo '<section><p>Identifiant ou mot de passe incorrect.</p></section>';
                 include_once 'views/login.php';
             }
         } else {
@@ -26,9 +26,4 @@ function authController(): void {
     }
 
     footer();
-}
-
-
-function loginFailed(): void {
-    echo '<section><p>Identifiant ou mot de passe incorrect.</p></section>';
 }

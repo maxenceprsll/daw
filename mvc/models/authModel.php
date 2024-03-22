@@ -13,6 +13,8 @@ function traitementConnexion(): bool {
         $stmt->execute(array(':login' => $login));
         $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        $db = null;
+
         if ($userData && password_verify($passe, $userData['usPass'])) {
             extract($userData);
             $_SESSION['usLogin'] = $usLogin;

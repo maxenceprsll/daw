@@ -86,6 +86,7 @@ function nav(string $prefixe = '.'):void {
     echo '<nav>',
     '<ul id="navigation">',
         '<li><a href='.$prefixe.'/>Accueil</a></li>',
+        '<li><a href='.$prefixe.'/?route=forum>Forum</a></li>',
         '<li id="user">';
     if (isset($_SESSION['usLogin'])) {
         if (isset($_SESSION['usAdmin']) && $_SESSION['usAdmin']) {
@@ -100,7 +101,7 @@ function nav(string $prefixe = '.'):void {
             '</div>',
         '</li>';
         } else {
-            echo '<span class="clickable">'.$_SESSION['usPrenom'],' ',$_SESSION['usNom'].'</span>',
+            echo '<span class="clickable">'.$_SESSION['usPrenom'],' ',$_SESSION['usNom'].' &#9662</span>',
                 '<div id="sidebar">',
                     '<ul>',
                         '<li><a href="'.$prefixe.'/?route=profil">Profil</a></li>',

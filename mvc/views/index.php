@@ -2,7 +2,10 @@
 
 echo    '<section>',
         '<h2>Annonces du site</h2>',
-        '<p>C\'est bien vide ici...</p>',
+        '<ul>',
+            '<li><p>L\'ajout des pages de forum est un franc succès ! La possibilité de pouv...</p></li>',
+            '<li><p>Il est désormais possible de s\'auto évaluer via la page questionnai...</p></li>',
+        '</ul>',
     '</section>',
     '<section>',
         '<h2>Forum</h2>',
