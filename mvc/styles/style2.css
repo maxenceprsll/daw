@@ -74,7 +74,7 @@ a:hover, .clickable:hover {
 }
 
 /* SUBMIT */
-input[type="submit"] {
+input[type="submit"], input[type="reset"] {
     margin-top: 20px;
     padding: 10px 20px;
     border: none;
@@ -84,7 +84,7 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-input[type="submit"]:hover {
+input[type="submit"]:hover, input[type="reset"]:hover {
     background-color: var(--tertiary);
 }
 
@@ -106,14 +106,14 @@ input[type="submit"]:hover {
 
 .sessionForm input[type="text"],
 .sessionForm input[type="password"] {
-    width: calc(100% - 20px);
+    width: 90%;
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
 
 .sessionForm input[type="submit"] {
-    width: calc(50% - 5px);
+    width: 50%;
 }
 
 .sessionForm {
@@ -355,25 +355,25 @@ input[type="submit"]:hover {
 
 /* FORMULAIRE AJOUT ARTICLE */
 
-.add-article-form {
+.add-forum-form {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
 }
 
-.add-article-form h2 {
+.add-forum-form h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.add-article-form label {
+.add-forum-form label {
     display: block;
     font-weight: bold;
     margin: 10px 0 5px 5px;
 }
 
-.add-article-form input[type="text"],
-.add-article-form textarea {
+.add-forum-form input[type="text"],
+.add-forum-form textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -382,12 +382,8 @@ input[type="submit"]:hover {
     box-sizing: border-box;
 }
 
-.add-article-form textarea {
+.add-forum-form textarea {
     min-height: 3lh;
     max-width: 100%;
     min-width: 100%;
-}
-
-.add-article-form input[type="submit"]:hover {
-    background-color: var(--tertiary);
 }

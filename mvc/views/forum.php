@@ -2,16 +2,16 @@
 
 if (isset($_SESSION['usLogin'])) {
     if (isset($_GET['addArticle'])) {
-        echo '<section class="add-article-form">';
-        echo '<h2>Ajouter un article</h2>';
-        echo '<form action="?route=forum&saveArticle" method="post">';
-        echo '<label for="arTitre">Titre</label>';
-        echo '<input type="text" name="arTitre" placeholder="Titre de l\'article" required><br>';
-        echo '<label for="login">Contenu</label>';
-        echo '<textarea name="arContenu" placeholder="Contenu de l\'article" required></textarea><br>';
-        echo '<input type="submit" value="Publier">';
-        echo '</form>';
-        echo '</section>';
+        echo '<section class="add-forum-form">',
+            '<h2>Ajouter un article</h2>',
+            '<form action="?route=forum&saveArticle" method="post">',
+                '<label for="arTitre">Titre</label>',
+                '<input type="text" name="arTitre" placeholder="Titre de l\'article" required><br>',
+                '<label for="arContenu">Contenu</label>',
+                '<textarea name="arContenu" placeholder="Contenu de l\'article" required></textarea><br>',
+                '<input type="submit" value="Publier"/>',
+            '</form>',
+        '</section>';
     } else {
         echo '<a href="?route=forum&addArticle" class="add-forum-button">Ajouter un article</a>';
     }

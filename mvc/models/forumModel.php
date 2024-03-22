@@ -53,3 +53,18 @@ function addArticle($arTitre, $arContenu, $arAuteur): void {
 
     $db = null;
 }
+
+function addComment($coArticleID, $coContenu, $coAuteur): void {
+    $db = bdConnect();
+
+    $query = "INSERT INTO commentaire (coArticleID, coContenu, coAuteur, coDate) VALUES (:coArticleID, :coContenu, :coAuteur, NOW())";
+    $stmt = $db->prepare($query);
+
+    $stmt->bindParam(':coArticleID', $coArticleID, PDO::PARAM_STR);
+    $stmt->bindParam(':coContenu', $coContenu, PDO::PARAM_STR);
+    $stmt->bindParam(':coAuteur', $coAuteur, PDO::PARAM_STR);
+
+    $stmt->execute();
+
+    $db = null;
+}

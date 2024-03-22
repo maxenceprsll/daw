@@ -10,6 +10,11 @@ function forumController(): void {
 
     if (isset($_GET['arID'])) {
 
+        if (isset($_GET['saveComment'])) {
+            $auteur = $_SESSION['usPrenom'].' '.$_SESSION['usNom'];
+            addComment($_POST['coArticleID'],$_POST['coContenu'],$auteur);
+        }
+
         $article = getArticle($_GET['arID']);
         $comments = getComments($_GET['arID']);
 
