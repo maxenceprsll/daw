@@ -22,7 +22,7 @@ header {
     color: var(--primary);
 }
 
-#titre {
+#ploodle {
     margin: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     font-size: 10lvw;
@@ -53,6 +53,33 @@ a:hover, .clickable:hover {
     text-decoration: underline;
     cursor: pointer;
 }
+
+/* Heading styles */
+h1, h2, h3, h4 {
+    font-weight: bold;
+    color: var(--primary);
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
 
 /* NAV */
 #navigation {
@@ -105,7 +132,8 @@ input[type="submit"]:hover, input[type="reset"]:hover {
 }
 
 .sessionForm input[type="text"],
-.sessionForm input[type="password"] {
+.sessionForm input[type="password"],
+.sessionForm select {
     width: 90%;
     padding: 8px;
     border-radius: 5px;
@@ -386,4 +414,29 @@ input[type="submit"]:hover, input[type="reset"]:hover {
     min-height: 3lh;
     max-width: 100%;
     min-width: 100%;
+}
+
+/* COURS */
+#table_cours {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#table_cours th, #table_cours td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+
+#table_cours th {
+    background-color: var(--primary);
+    color: white;
+}
+
+#table_cours tr:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#table_cours td a {
+    margin-right: 20%;
 }

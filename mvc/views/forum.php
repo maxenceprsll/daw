@@ -1,5 +1,7 @@
 <?php //Maxence Persello
 
+echo '<section><h1>Forum</h1></section>';
+
 if (isset($_SESSION['usLogin'])) {
     if (isset($_GET['addArticle'])) {
         echo '<section class="add-forum-form">',
@@ -20,7 +22,7 @@ if (isset($_SESSION['usLogin'])) {
 if (!empty($articles)) {
     foreach ($articles as $article) {
         echo '<section>';
-        echo '<h2><a href="?route=forum&arID=' . $article['arID'] . '">' . $article['arTitre'] . '</a></h2>'; // Ajoutez un lien autour du titre de l'article
+        echo '<h2><a href="?route=forum&arID=' . $article['arID'] . '">' . $article['arTitre'] . '</a></h2>';
         echo '<p>' . $article['arContenu'] . '</p>';
         echo '<p><strong>Auteur:</strong> ' . $article['arAuteur'];
         echo ' <strong>Date:</strong> ' . $article['arDate'] . '</p>';

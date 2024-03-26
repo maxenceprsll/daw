@@ -1,6 +1,7 @@
 <?php // Maxence Persello & Alexis
 
-echo '<section>';
+echo '<section>',
+    '<h1>'.$titre['paTitre'].'</h1>';
 foreach ($cours as $objet) {
     switch ($objet['elType']) {
         case "txt":

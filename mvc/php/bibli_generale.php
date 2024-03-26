@@ -78,7 +78,7 @@ function head(string $title, string $prefixe = '.', string $css = 'style2.css'):
 
 function heading() {
     echo '<header class="box">',
-        '<h1 id="titre">PLOODLE</h1>',
+        '<h1 id="ploodle">PLOODLE</h1>',
         '</header>';
 }
 
