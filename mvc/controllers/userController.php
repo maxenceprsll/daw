@@ -12,10 +12,11 @@ function userController(): void {
 
     $input =isset($_POST['input'])?$_POST['input']:'';
 
-    echo '<section>';
-    echo '<h2>Liste des Utilisateurs</h2>';
-    echo '<input type="text" id="searchInput" oninput="getUsers()" placeholder="Nom, Prenom ou Login">';
-    echo '<table id="table_user">';
+    echo '<section>',
+    '<h2>Liste des Utilisateurs</h2>',
+    '<input type="text" id="searchInput" oninput="getUsers()" placeholder="Nom, Prenom ou Login">',
+    '<a href=?route=add_user>Ajouter un Utilisateur</a>',
+    '<table id="table_user">';
     ?>
     <script>
         $(document).ready(function() {
@@ -40,7 +41,7 @@ function userController(): void {
     footer();
 }
 
-function userEditor($usID = 0): void {
+function userEditor($usID): void {
     if (!$usID) {
         header('Location: index.php');
     }
@@ -60,4 +61,41 @@ function userEditor($usID = 0): void {
 
     footer();
 
+}
+
+function userRemove($usID): void {
+    if (!$usID) {
+        header('Location: index.php');
+    }
+
+    head('Suppression Utilisateur');
+    heading();
+    nav();
+
+    if (isset($_POST['btnRemove'])) {
+        removeUser($usID);
+        header('Location: ?route=gestion_user');
+    } else {
+        $user = getUser($usID);
+        include_once 'views/user_remover.php';
+    }
+    
+
+    footer();
+}
+
+function userAdd(): void {
+    head('Ajout Utilisateur');
+    heading();
+    nav();
+
+    if (isset($_POST['btnAdd'])) {
+        addUser();
+        header('Location: ?route=gestion_user');
+    } else {
+        include_once 'views/user_adder.php';
+    }
+    
+
+    footer();
 }

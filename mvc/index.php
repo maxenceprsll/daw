@@ -6,6 +6,7 @@ require_once 'controllers/indexController.php';
 require_once 'controllers/userController.php';
 require_once 'controllers/forumController.php';
 require_once 'controllers/qcmController.php';
+require_once 'controllers/coursController.php';
 require_once 'controllers/authController.php';
 
 $route = isset($_GET['route']) ? $_GET['route'] : '';
@@ -27,6 +28,20 @@ switch ($route) {
         } else {
             header('Location: index.php');
         }
+    case 'remove_user':
+        if($admin) {
+            userRemove(isset($_GET['id'])?$_GET['id']:0);
+            break;
+        } else {
+            header('Location: index.php');
+        }
+    case 'add_user':
+        if($admin) {
+            userAdd();
+            break;
+        } else {
+            header('Location: index.php');
+        }
     case 'auth':
         authController();
         break;
@@ -35,6 +50,9 @@ switch ($route) {
         break;
     case 'forum':
         forumController();
+        break;
+    case 'cours':
+        coursController();
         break;
     default:
         indexController();

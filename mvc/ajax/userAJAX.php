@@ -22,14 +22,14 @@ $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if (!empty($users)) {
-    echo '<tr><th>Nom</th><th>Prénom</th><th>Login</th><th>Actions</th></tr>';
+    echo '<tr><th>Nom</th><th>Prénom</th><th>Login</th><th colspan="2">Actions</th></tr>';
     foreach ($users as $user) {
         echo '<tr>';
         echo '<td>' . $user['usNom'] . '</td>';
         echo '<td>' . $user['usPrenom'] . '</td>';
         echo '<td>' . $user['usLogin'] . '</td>';
         echo '<td><a href="?route=edit_user&id=' . $user['usID'] . '">Editer</a>';
-        echo '<a class="remove_user" data-userid="'. $user['usID'] .'">Supprimer</a></td>';
+        echo '<td><a href="?route=remove_user&id='. $user['usID'] .'">Supprimer</a></td>';
         echo '</tr>';
     }
 } else {

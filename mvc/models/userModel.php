@@ -28,7 +28,7 @@ function getUser($usID): array {
     return $user;
 }
 
-function updateUser($usID): int {
+function updateUser($usID): void {
 
     $db = bdConnect();
 
@@ -44,6 +44,36 @@ function updateUser($usID): int {
     $stmt->execute();
 
     $db = null;
+}
 
-    return 1;
+function removeUser($usID): void {
+    $db = bdConnect();
+
+    $query = "DELETE FROM user WHERE usID = :usID";
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(':usID', $usID);
+    $stmt->execute();
+
+    $db = null;
+}
+
+function addUser(): void {
+    $db = bdConnect();
+
+    $usLogin = $_POST['login'];
+    $usNom = $_POST['nom'];
+    $usPrenom = $_POST['prenom'];
+    $usPass = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $admin = isset($_POST['admin'])?1:0;
+
+    $query = "INSERT INTO user(usLogin, usNom, usPrenom, usAdmin, usPass) VALUES (:usLogin, :usNom, :usPrenom, :usAdmin, :usPass)";
+    $stmt = $db->prepare($query);
+    $stmt->bindParam(':usLogin', $_POST['login']);
+    $stmt->bindParam(':usNom', $_POST['nom']);
+    $stmt->bindParam(':usPrenom', $_POST['prenom']);
+    $stmt->bindParam(':usPass', $usPass);
+    $stmt->bindParam(':usAdmin', $admin);
+    $stmt->execute();
+
+    $db = null;
 }

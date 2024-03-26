@@ -1,13 +1,13 @@
 <?php //Maxence Persello
 
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
-
 define('BD_NAME', 'projet_daw');
 define('BD_USER', 'projet_daw_u');
 define('BD_PASS', 'projet_daw_p');
 define('BD_SERVER', 'localhost');
+
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 
 session_start();
 
@@ -87,6 +87,7 @@ function nav(string $prefixe = '.'):void {
     '<ul id="navigation">',
         '<li><a href='.$prefixe.'/>Accueil</a></li>',
         '<li><a href='.$prefixe.'/?route=forum>Forum</a></li>',
+        '<li><a href="'.$prefixe.'/?route=cours">Cours</a></li>',
         '<li id="user">';
     if (isset($_SESSION['usLogin'])) {
         if (isset($_SESSION['usAdmin']) && $_SESSION['usAdmin']) {
@@ -95,7 +96,6 @@ function nav(string $prefixe = '.'):void {
                 '<ul>',
                     '<li><a href="'.$prefixe.'/?route=profil">Profil</a></li>',
                     '<li><a href="'.$prefixe.'/?route=gestion_user">Utilisateurs</a></li>',
-                    '<li><a href="'.$prefixe.'/?route=gestion_cours">Cours</a></li>',
                     '<li><a href="'.$prefixe.'/?route=auth">Déconnexion</a></li>',
                 '</ul>',
             '</div>',

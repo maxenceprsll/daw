@@ -16,21 +16,21 @@ if (isset($_SESSION['usLogin'])) {
     }
 }
 
-echo '<section>';
-echo '<h2>' . $article['arTitre'] . '</h2>';
-echo '<p>' . $article['arContenu'] . '</p>';
-echo '<p><strong>Auteur:</strong> ' . $article['arAuteur'];
-echo ' <strong>Date:</strong> ' . $article['arDate'] . '</p>';
-echo '</section>';
+echo '<section>',
+    '<h2>' . $article['arTitre'] . '</h2>',
+    '<p>' . $article['arContenu'] . '</p>',
+    '<p><strong>Auteur:</strong> ' . $article['arAuteur'],
+    '<strong>Date:</strong> ' . $article['arDate'] . '</p>',
+'</section>';
 
 if (!empty($comments)) {
     echo '<div class="comments">';
     foreach ($comments as $comment) {
-        echo '<section class="comment">';
-        echo '<p>' . $comment['coContenu'] . '</p>';
-        echo '<p><strong>Auteur:</strong> ' . $comment['coAuteur'];
-        echo ' <strong>Date:</strong> ' . $comment['coDate'] . '</p>';
-        echo '</section>';
+        echo '<section class="comment">',
+            '<p>' . $comment['coContenu'] . '</p>',
+            '<p><strong>Auteur:</strong> ' . $comment['coAuteur'],
+            ' <strong>Date:</strong> ' . $comment['coDate'] . '</p>',
+        '</section>';
     }
     echo '</div>';
 } else {
