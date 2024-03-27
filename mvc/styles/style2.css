@@ -330,7 +330,6 @@ input[type="submit"]:hover, input[type="reset"]:hover {
 }
 
 /* TABLES */
-
 .table {
     width: 100%;
     border-collapse: collapse;
@@ -384,7 +383,6 @@ input[type="submit"]:hover, input[type="reset"]:hover {
 }
 
 /* FORMULAIRE AJOUT ARTICLE */
-
 .add-forum-form {
     width: 50%;
     margin-left: auto;
@@ -419,7 +417,6 @@ input[type="submit"]:hover, input[type="reset"]:hover {
 }
 
 /* COURS */
-
 #cours p {
     margin-left: 15px;
 }
@@ -498,6 +495,21 @@ input[type="submit"]:hover, input[type="reset"]:hover {
     display: block;
     font-weight: bold;
     margin: 10px 0 5px 5px;
+}
+
+.add-element select,
+.add-element input[type="file"] {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.add-element input[type="file"] {
+    border: 4px solid white;
+    background-color: #ddd;
 }
 
 .add-element input[type="text"],

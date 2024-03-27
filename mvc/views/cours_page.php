@@ -33,7 +33,7 @@ if ($admin) {
                     '<option value="text" selected>Texte</option>',
                     '<option value="file">Fichier</option>',
                 '</select>',
-                '<div id="textType" class=element-input">',
+                '<div id="textTypeInput" class=element-input">',
                     '<label for="textType">Formatage</label>',
                     '<select name="textType" id="textType">',
                         '<option value="h2">Titre 2</option>',
@@ -46,7 +46,7 @@ if ($admin) {
                     '<textarea name="textContent" id="textContent" cols="30" rows="10"></textarea>',
                 '</div>',
                 '<div id="fileInput" class="element-input" style="display: none;">',
-                    '<label for="fileContent">Sélectionnez un fichier</label>',
+                    '<label id="fileInputLabel" for="fileContent">Sélectionnez un fichier</label>',
                     '<input type="file" name="fileContent" id="fileContent">',
                 '</div>',
                 '<input type="submit" name="saveElement" value="Ajouter"/>',
@@ -64,7 +64,7 @@ if ($admin) {
     function toggleInput() {
         var elementType = document.getElementById("elementType").value;
         var textInput = document.getElementById("textInput");
-        var textType = document.getElementById("textType");
+        var textType = document.getElementById("textTypeInput");
         var fileInput = document.getElementById("fileInput");
 
         if (elementType === "text") {
