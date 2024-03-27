@@ -37,9 +37,11 @@ if (!empty($cours)) {
             '<td>'.$cour['usNom'].' '.$cour['usPrenom'].'</td>',
             '<td>'.$cour['foIntitule'].'</td>',
             '<td>'.$cour['niShort'].'</td>',
-            '<td><a href="?route=cours&page='.$cour['paID'].'">Consulter</a>',
-            '<a href="?route=remove_page&id='. $cour['paID'] .'">Supprimer</a></td>',
-        '</tr>';
+            '<td><a href="?route=cours&page='.$cour['paID'].'">Consulter</a>';
+            if (isset($_SESSION['usAdmin']) && $_SESSION['usAdmin']) {
+                echo '<a href="?route=remove_page&id='. $cour['paID'] .'">Supprimer</a></td>';
+            }
+        echo '</tr>';
     }
 
 } else {
