@@ -22,6 +22,8 @@ function traitementConnexion(): bool {
             $_SESSION['usNom'] = $usNom;
             $_SESSION['usPrenom'] = $usPrenom;
             $_SESSION['usAdmin'] = $usAdmin;
+            $_SESSION['usNiveau'] = $usNiveau;
+            $_SESSION['usFormation'] = $usFormation;
             return true;
         } else {
             return false;

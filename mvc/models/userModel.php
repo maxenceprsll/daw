@@ -66,7 +66,7 @@ function addUser(): void {
     $usPass = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $admin = isset($_POST['admin'])?1:0;
 
-    $query = "INSERT INTO user(usLogin, usNom, usPrenom, usAdmin, usPass) VALUES (:usLogin, :usNom, :usPrenom, :usAdmin, :usPass)";
+    $query = "INSERT INTO user(usLogin, usNom, usPrenom, usAdmin, usPass, usNiveau, usFormation) VALUES (:usLogin, :usNom, :usPrenom, :usAdmin, :usPass, 0, 0)";
     $stmt = $db->prepare($query);
     $stmt->bindParam(':usLogin', $_POST['login']);
     $stmt->bindParam(':usNom', $_POST['nom']);

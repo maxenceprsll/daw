@@ -1,6 +1,6 @@
 <?php // Maxence Persello & Alexis
 
-echo '<section>',
+echo '<section id="cours">',
     '<h1>'.$titre['paTitre'].'</h1>';
 foreach ($cours as $objet) {
     switch ($objet['elType']) {

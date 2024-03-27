@@ -3,7 +3,7 @@
 function getAllArticles(): array {
     $db = bdConnect();
 
-    $query = "SELECT * FROM article";
+    $query = "SELECT arID, arTitre, arContenu, usNom, usPrenom, arDate FROM article, user WHERE arAuteur = usID ORDER BY (arID) DESC";
     $stmt = $db->query($query);
 
     $articles = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -16,7 +16,7 @@ function getAllArticles(): array {
 function getArticle($arID): array {
     $db = bdConnect();
 
-    $query = "SELECT * FROM article WHERE arID = :arID";
+    $query = "SELECT arID, arTitre, arContenu, usNom, usPrenom, arDate FROM article, user WHERE arID = :arID AND arAuteur = usID";
     $stmt = $db->prepare($query);
     $stmt->execute(array(':arID' => $arID));
     $article = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -29,9 +29,11 @@ function getArticle($arID): array {
 function getComments($arID): array {
     $db = bdConnect();
 
-    $query = "SELECT * FROM commentaire WHERE coArticleID = :arID";
+    $query = "SELECT * FROM commentaire, user WHERE coArticleID = :arID AND coAuteur = usID ORDER BY (coID)";
     $stmt = $db->prepare($query);
-    $stmt->execute(array(':arID' => $arID));
+    $stmt->bindParam(':arID', $arID);
+    
+    $stmt->execute();
     $commentaire = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     $db = null;
@@ -45,9 +47,8 @@ function addArticle($arTitre, $arContenu, $arAuteur): void {
     $query = "INSERT INTO article (arTitre, arContenu, arAuteur, arDate) VALUES (:arTitre, :arContenu, :arAuteur, NOW())";
     $stmt = $db->prepare($query);
 
-    $stmt->bindParam(':arTitre', $arTitre, PDO::PARAM_STR);
-    $stmt->bindParam(':arContenu', $arContenu, PDO::PARAM_STR);
-    $stmt->bindParam(':arAuteur', $arAuteur, PDO::PARAM_STR);
+    $stmt->bindParam(':arContenu', $arContenu);
+    $stmt->bindParam(':arAuteur', $arAuteur);
 
     $stmt->execute();
 
@@ -60,9 +61,9 @@ function addComment($coArticleID, $coContenu, $coAuteur): void {
     $query = "INSERT INTO commentaire (coArticleID, coContenu, coAuteur, coDate) VALUES (:coArticleID, :coContenu, :coAuteur, NOW())";
     $stmt = $db->prepare($query);
 
-    $stmt->bindParam(':coArticleID', $coArticleID, PDO::PARAM_STR);
-    $stmt->bindParam(':coContenu', $coContenu, PDO::PARAM_STR);
-    $stmt->bindParam(':coAuteur', $coAuteur, PDO::PARAM_STR);
+    $stmt->bindParam(':coArticleID', $coArticleID);
+    $stmt->bindParam(':coContenu', $coContenu);
+    $stmt->bindParam(':coAuteur', $coAuteur);
 
     $stmt->execute();
 

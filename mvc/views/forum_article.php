@@ -3,8 +3,8 @@
 echo '<section>',
     '<h2>' . $article['arTitre'] . '</h2>',
     '<p>' . $article['arContenu'] . '</p>',
-    '<p><strong>Auteur:</strong> ' . $article['arAuteur'],
-    '<strong>Date:</strong> ' . $article['arDate'] . '</p>',
+    '<p><strong>Auteur:</strong> ' . $article['usNom'] . ' ' . $article['usPrenom'],
+    ' <strong>Date:</strong> ' . $article['arDate'] . '</p>',
 '</section>';
 
 if (!empty($comments)) {
@@ -12,7 +12,7 @@ if (!empty($comments)) {
     foreach ($comments as $comment) {
         echo '<section class="comment">',
             '<p>' . $comment['coContenu'] . '</p>',
-            '<p><strong>Auteur:</strong> ' . $comment['coAuteur'],
+            '<p><strong>Auteur:</strong> ' . $comment['usNom'] . ' ' . $comment['usPrenom'],
             ' <strong>Date:</strong> ' . $comment['coDate'] . '</p>',
         '</section>';
     }

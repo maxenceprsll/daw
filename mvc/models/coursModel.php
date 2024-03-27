@@ -32,11 +32,14 @@ function getTitre($numPages) {
 function addCours($categorie, $niveau, $titre) {
     $db = bdConnect();
 
-    $sql = "INSERT INTO pageCours(paCategorieID, paTitre, paNiveau) VALUES (:C, :T, :N)";
+    $paUser = $_SESSION['usID'];
+
+    $sql = "INSERT INTO pageCours(paCategorieID, paTitre, paNiveau, paUser) VALUES (:C, :T, :N, :U)";
     $req = $db->prepare($sql);
     $req->bindParam(':C', $categorie);
     $req->bindParam(':T', $titre);
     $req->bindParam(':N', $niveau);
+    $req->bindParam(':U', $paUser);
     $req->execute();
 
     $db = null;
@@ -63,7 +66,7 @@ function addElem($coursid,$type,$val,$format) {
 function getlstCours() {
     $db = bdConnect();
 
-    $sql = "SELECT * FROM pageCours, categorie WHERE paCategorieID = caID";
+    $sql = "SELECT paID, paTitre, foIntitule, niShort, usNom, usPrenom FROM pageCours, formation, user, niveau WHERE paFormationID = foID AND paUser = usID AND paNiveau = niID";
     $resultat = $db->query($sql);
     $liste = $resultat->fetchAll(PDO::FETCH_ASSOC);
 
@@ -72,17 +75,26 @@ function getlstCours() {
     return $liste;
 }
 
-function createTableIfNotExists() {
+function getFormations() {
     $db = bdConnect();
 
-    $sql_create_table = "CREATE TABLE IF NOT EXISTS elementCours (
-            elID INT AUTO_INCREMENT PRIMARY KEY,
-            elCoursID INT,
-            elType VARCHAR(3),
-            elContenu TEXT,
-            FOREIGN KEY (elCoursID) REFERENCES pageCours(paID)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
-    $db->exec($sql_create_table);
+    $sql = "SELECT * FROM formation";
+    $resultat = $db->query($sql);
+    $liste = $resultat->fetchAll(PDO::FETCH_ASSOC);
 
     $db = null;
-}    
+
+    return $liste;
+}
+
+function getNiveaux() {
+    $db = bdConnect();
+
+    $sql = "SELECT * FROM niveau";
+    $resultat = $db->query($sql);
+    $liste = $resultat->fetchAll(PDO::FETCH_ASSOC);
+
+    $db = null;
+
+    return $liste;
+}

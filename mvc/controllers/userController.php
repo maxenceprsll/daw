@@ -16,7 +16,7 @@ function userController(): void {
     '<h2>Liste des Utilisateurs</h2>',
     '<input type="text" id="searchInput" oninput="getUsers()" placeholder="Nom, Prenom ou Login">',
     '<a href=?route=add_user>Ajouter un Utilisateur</a>',
-    '<table id="table_user">';
+    '<table class="table">';
     ?>
     <script>
         $(document).ready(function() {

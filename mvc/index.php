@@ -8,6 +8,8 @@ require_once 'controllers/forumController.php';
 require_once 'controllers/qcmController.php';
 require_once 'controllers/coursController.php';
 require_once 'controllers/authController.php';
+require_once 'controllers/profilController.php';
+
 
 $route = isset($_GET['route']) ? $_GET['route'] : '';
 $loggedin = (isset($_SESSION['usLogin']));
@@ -44,6 +46,9 @@ switch ($route) {
         }
     case 'auth':
         authController();
+        break;
+    case 'profil':
+        profilController();
         break;
     case 'questionnaires':
         qcmController();

@@ -24,7 +24,7 @@ if (!empty($articles)) {
         echo '<section>';
         echo '<h2><a href="?route=forum&arID=' . $article['arID'] . '">' . $article['arTitre'] . '</a></h2>';
         echo '<p>' . $article['arContenu'] . '</p>';
-        echo '<p><strong>Auteur:</strong> ' . $article['arAuteur'];
+        echo '<p><strong>Auteur:</strong> ' . $article['usNom'] . ' ' . $article['usPrenom'];
         echo ' <strong>Date:</strong> ' . $article['arDate'] . '</p>';
         echo '</section>';
     }

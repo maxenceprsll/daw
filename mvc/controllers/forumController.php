@@ -18,7 +18,7 @@ function forumController(): void {
         $article = getArticle($_GET['arID']);
         $comments = getComments($_GET['arID']);
 
-        include_once 'views/article.php';
+        include_once 'views/forum_article.php';
     } else {
         
         if (isset($_GET['saveArticle'])) {
@@ -27,7 +27,7 @@ function forumController(): void {
         }
 
         $articles = getAllArticles();
-        include_once 'views/forum.php';
+        include_once 'views/forum_index.php';
 
     }
     footer();
