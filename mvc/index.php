@@ -1,4 +1,4 @@
-<?php //Maxence Persello
+<?php // Maxence Persello
 
 require_once 'php/bibli_generale.php';
 
@@ -59,6 +59,13 @@ switch ($route) {
     case 'cours':
         coursController();
         break;
+    case 'remove_page':
+        if($admin) {
+            coursRemover(isset($_GET['id'])?$_GET['id']:0);
+            break;
+        } else {
+            header('Location: index.php');
+        }
     default:
         indexController();
         break;

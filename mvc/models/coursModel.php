@@ -29,14 +29,14 @@ function getTitre($numPages) {
 }
 
 
-function addCours($categorie, $niveau, $titre) {
+function addCours($formation, $niveau, $titre) {
     $db = bdConnect();
 
     $paUser = $_SESSION['usID'];
 
-    $sql = "INSERT INTO pageCours(paCategorieID, paTitre, paNiveau, paUser) VALUES (:C, :T, :N, :U)";
+    $sql = "INSERT INTO pageCours(paFormationID, paTitre, paNiveau, paUser) VALUES (:C, :T, :N, :U)";
     $req = $db->prepare($sql);
-    $req->bindParam(':C', $categorie);
+    $req->bindParam(':C', $formation);
     $req->bindParam(':T', $titre);
     $req->bindParam(':N', $niveau);
     $req->bindParam(':U', $paUser);
@@ -56,14 +56,12 @@ function addElem($coursid,$type,$val,$format) {
     $req->bindParam(':C', $val);
     $req->bindParam(':F', $format);
 
-    $result = $req->execute();
+    $req->execute();
 
     $db = null;
-
-    return $result;
 }
 
-function getlstCours() {
+function getlstCours(): array {
     $db = bdConnect();
 
     $sql = "SELECT paID, paTitre, foIntitule, niShort, usNom, usPrenom FROM pageCours, formation, user, niveau WHERE paFormationID = foID AND paUser = usID AND paNiveau = niID";
@@ -75,7 +73,7 @@ function getlstCours() {
     return $liste;
 }
 
-function getFormations() {
+function getFormations(): array {
     $db = bdConnect();
 
     $sql = "SELECT * FROM formation";
@@ -87,7 +85,7 @@ function getFormations() {
     return $liste;
 }
 
-function getNiveaux() {
+function getNiveaux(): array {
     $db = bdConnect();
 
     $sql = "SELECT * FROM niveau";
@@ -97,4 +95,32 @@ function getNiveaux() {
     $db = null;
 
     return $liste;
+}
+
+function removeElement($elID): void {
+    $db = bdConnect();
+
+    $sql = "DELETE FROM elementCours WHERE elID = :elID";
+    $req = $db->prepare($sql);
+    $req->bindParam(':elID', $elID);
+
+    $req->execute();
+
+    $db = null;
+}
+
+function removePage($paID): void {
+    $db = bdConnect();
+
+    $sql = "DELETE FROM elementCours WHERE elCoursID = :paID";
+    $req = $db->prepare($sql);
+    $req->bindParam(':paID', $paID);
+    $req->execute();
+
+    $sql = "DELETE FROM pageCours WHERE paID = :paID";
+    $req = $db->prepare($sql);
+    $req->bindParam(':paID', $paID);
+    $req->execute();
+
+    $db = null;
 }

@@ -1,4 +1,4 @@
-<?php //Maxence Persello
+<?php // Maxence Persello
 
 echo '<section class="sessionForm">',
     '<h3>Suppression d\'un utilisateur</h3>',

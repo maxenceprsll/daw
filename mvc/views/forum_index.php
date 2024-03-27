@@ -1,4 +1,4 @@
-<?php //Maxence Persello
+<?php // Maxence Persello
 
 echo '<section><h1>Forum</h1></section>';
 

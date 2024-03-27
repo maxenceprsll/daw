@@ -35,7 +35,7 @@ if (isset($_GET['editProfil'])) {
         echo '<ul id="profil">',
             '<li><strong>Login</strong></li>',
             '<li>' . $user['usLogin'] . '</li>',
-            '<li><strong>Nom:</strong></li>',
+            '<li><strong>Nom</strong></li>',
             '<li>' . $user['usNom'] . '</li>',
             '<li><strong>Prénom</strong></li>',
             '<li>' . $user['usPrenom'] . '</li>',

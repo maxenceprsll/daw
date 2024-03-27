@@ -9,9 +9,9 @@ $input =isset($_POST['input'])?'%'.$_POST['input'].'%':'';
 if($input) {
     $query = "SELECT usID, usLogin, usNom, usPrenom FROM user WHERE usNom LIKE :inputn OR usPrenom LIKE :inputp OR usLogin LIKE :inputl";
     $stmt = $db->prepare($query);
-    $stmt->bindParam(':inputn', $input, PDO::PARAM_STR);
-    $stmt->bindParam(':inputp', $input, PDO::PARAM_STR);
-    $stmt->bindParam(':inputl', $input, PDO::PARAM_STR);
+    $stmt->bindParam(':inputn', $input);
+    $stmt->bindParam(':inputp', $input);
+    $stmt->bindParam(':inputl', $input);
 } else {
     $query = "SELECT usID, usLogin, usNom, usPrenom FROM user";
     $stmt = $db->prepare($query);

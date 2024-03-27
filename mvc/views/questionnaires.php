@@ -1,4 +1,4 @@
-<?php //Maxence Persello
+<?php // Maxence Persello
 
 echo '<section>',
     '<form class="sessionForm" method="POST">',

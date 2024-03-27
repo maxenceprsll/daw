@@ -14,9 +14,9 @@ function userController(): void {
 
     echo '<section>',
     '<h2>Liste des Utilisateurs</h2>',
-    '<input type="text" id="searchInput" oninput="getUsers()" placeholder="Nom, Prenom ou Login">',
-    '<a href=?route=add_user>Ajouter un Utilisateur</a>',
-    '<table class="table">';
+    '<div class="inline-searchbar"><input type="text" id="searchInput" oninput="getUsers()" placeholder="Nom, Prenom ou Login">',
+    '<a href=?route=add_user>Ajouter un Utilisateur</a></div>',
+    '<table id="table_user" class="table">';
     ?>
     <script>
         $(document).ready(function() {
@@ -35,8 +35,8 @@ function userController(): void {
         }
     </script>
     <?php
-    echo '</table>';
-    echo '</section>';
+    echo '</table>',
+    '</section>';
 
     footer();
 }

@@ -115,16 +115,16 @@ function nav(string $prefixe = '.'):void {
         echo '<a href="'.$prefixe.'/?route=auth">Connexion</a></li>';
     }
     echo '</ul>',
-'</nav>',
-'<main>';
+    '</nav>',
+    '<main>';
 }
 
 function footer(int $showRetour = 1, string $prefixe = '.'):void {
-if($showRetour) {
-    echo '<footer>',
-        '<p><a href="javascript:history.go(-1)">Retour</a>',
-    '</footer>';
-}
+    if($showRetour) {
+        echo '<footer>',
+            '<p><a href="javascript:history.go(-1)">Retour</a>',
+        '</footer>';
+    }
 
-echo '</main></div></body></html>';
+    echo '</main></div></body></html>';
 }
