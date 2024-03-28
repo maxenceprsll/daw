@@ -11,11 +11,11 @@ function authController(): void {
     if(isset($_SESSION['usLogin'])){
         session_unset();
         session_destroy();
-        header('Location: index.php');
+        header('Location: ?');
     } else {
         if (isset($_POST['btnConnexion'])) {
             if(traitementConnexion()) {
-                header('Location: index.php');
+                header('Location: ?');
             } else {
                 echo '<section><p>Identifiant ou mot de passe incorrect.</p></section>';
                 include_once 'views/login.php';

@@ -1,4 +1,4 @@
-<?php // Maxence Persello
+<?php // Maxence Persello & Chloé Freissinet
 
 function indexController(): void {
     head('Accueil');

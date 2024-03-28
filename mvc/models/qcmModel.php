@@ -1,4 +1,4 @@
-<?php //Maxence Persello
+<?php // Maxence Persello & Johann
 
 class Question {
     private $quID;

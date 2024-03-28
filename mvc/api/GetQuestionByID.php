@@ -1,4 +1,4 @@
-<?php //Maxence Persello
+<?php //Maxence Persello & Johann
 
 require_once '../php/bibli_generale.php';
 

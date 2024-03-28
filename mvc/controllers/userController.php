@@ -43,7 +43,7 @@ function userController(): void {
 
 function userEditor($usID): void {
     if (!$usID) {
-        header('Location: index.php');
+        header('Location: ?');
     }
 
     head('Edition Utilisateur');
@@ -65,7 +65,7 @@ function userEditor($usID): void {
 
 function userRemove($usID): void {
     if (!$usID) {
-        header('Location: index.php');
+        header('Location: ?');
     }
 
     head('Suppression Utilisateur');

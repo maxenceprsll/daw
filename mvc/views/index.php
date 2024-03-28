@@ -1,4 +1,4 @@
-<?php // Maxence Persello
+<?php // Maxence Persello & Chloé Freissinet
 
 echo    '<section>',
         '<h2>Annonces du site</h2>',

@@ -112,7 +112,7 @@ function coursController(): void {
 
 function coursRemover($paID): void {
     if (!$paID) {
-        header('Location: index.php');
+        header('Location: ?');
     }
 
     head('Suppression Cours');

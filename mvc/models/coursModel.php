@@ -1,4 +1,4 @@
-<?php //Maxence Persello & Alexis
+<?php // Maxence Persello & Alexis
 
 function getAllElements($numPages): array {
     $db = bdConnect();

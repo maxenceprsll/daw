@@ -9,6 +9,7 @@ require_once 'controllers/qcmController.php';
 require_once 'controllers/coursController.php';
 require_once 'controllers/authController.php';
 require_once 'controllers/profilController.php';
+require_once 'controllers/errorController.php';
 
 
 $route = isset($_GET['route']) ? $_GET['route'] : '';
@@ -21,28 +22,28 @@ switch ($route) {
             userController();
             break;
         } else {
-            header('Location: index.php');
+            header('Location: ?');
         }
     case 'edit_user':
         if($admin) {
             userEditor(isset($_GET['id'])?$_GET['id']:0);
             break;
         } else {
-            header('Location: index.php');
+            header('Location: ?');
         }
     case 'remove_user':
         if($admin) {
             userRemove(isset($_GET['id'])?$_GET['id']:0);
             break;
         } else {
-            header('Location: index.php');
+            header('Location: ?');
         }
     case 'add_user':
         if($admin) {
             userAdd();
             break;
         } else {
-            header('Location: index.php');
+            header('Location: ?');
         }
     case 'auth':
         authController();
@@ -64,9 +65,13 @@ switch ($route) {
             coursRemover(isset($_GET['id'])?$_GET['id']:0);
             break;
         } else {
-            header('Location: index.php');
+            header('Location: ?');
         }
-    default:
+    case '':
+    case 'index':
         indexController();
+        break;
+    default:
+        errorController();
         break;
 }
